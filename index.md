@@ -1,17 +1,17 @@
 FastViromeExplorer
 ===================
-Indentify the viruses/phages and their abundance in the viral metagenomics data. FastViromeExplorer is freely available at: (https://code.vt.edu/saima5/FastViromeExplorer)
+Indentify the viruses/phages and their abundance in the viral metagenomics data. FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>
 
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
 ## Download FastViromeExplorer
-You can download FastViromeExplorer directly from github (Github link: https://code.vt.edu/saima5/FastViromeExplorer) and extract it. You can also download it using the following command:
+You can download FastViromeExplorer directly from github (Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) and extract it. You can also download it using the following command:
 ```bash
 git clone git@code.vt.edu:saima5/FastViromeExplorer.git
 ```
 From now on, we will refer the FastViromeExplorer directory in the user's local machine as project directory.
 ## Install Java
-If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: http://www.oracle.com/technetwork/java/javase/downloads/index.html. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.
+If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.
 After installing Java, you can check it by running the following command in terminal:
 ```bash
 java -version
@@ -70,28 +70,31 @@ mkdir test-output
 java -cp bin FastViromeExplorer -1 test/reads_1.fq -2 test/reads_2.fq -i test/testset-kallisto-index.idx -o test-output
 ```
 The test input files are given in the `test` folder. Here, the input files are:
-1. *reads_1.fq* and *reads_2.fq* : paired-end reads in fastq format
-2. *testset-kallisto-index.idx* : kallisto index file generated for a small set of NCBI RefSeq viruses
-
+<ol>
+<li><i>reads_1.fq</i> and <i>reads_2.fq</i> : paired-end reads in fastq format</li>
+<li><i>testset-kallisto-index.idx</i> : kallisto index file generated for a small set of NCBI RefSeq viruses</li>
+</ol>
 The output files will be generated in the `test-output` directory. The output files are:
-1. *FastViromeExplorer-reads-mapped-sorted.sam* : aligned/mapped reads in sam format
-2. *FastViromeExplorer-final-sorted-abundance.tsv* : virus abundance result in tab-delimited format
-
+<ol>
+<li><i>FastViromeExplorer-reads-mapped-sorted.sam</i> : aligned/mapped reads in sam format</li>
+<li><i>FastViromeExplorer-final-sorted-abundance.tsv</i> : virus abundance result in tab-delimited format</li>
+</ol>
 In a similar manner, we can run FastViromeExplorer for single-end reads without specifying the "-2" parameter. An example of running FastViromeExplorer for single-end reads:
+
 ```bash
 mkdir test-output
 java -cp bin FastViromeExplorer -1 test/reads_1.fq -i test/testset-kallisto-index.idx -o test-output
 ```
 
 # Run FastViromeExplorer using NCBI RefSeq database
-Four pre-computed kallisto index files are given in the following link: https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/.
+Four pre-computed kallisto index files are given in the following link: <a href="https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/">https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/</a>.
 Download the kallisto index file for NCBI RefSeq database "ncbi-virus-kallisto-index-k31.idx" and save it. From the project directory, run the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/ncbi-virus-kallisto-index-k31.idx -o $outputDirectory
 ```
 
 # Run FastViromeExplorer using IMG/VR database
-Download the kallisto index file for IMG/VR database "imgvr-virus-kallisto-index-k31.idx" from https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/ and save it. From the project directory, run the following command:
+Download the kallisto index file for IMG/VR database "imgvr-virus-kallisto-index-k31.idx" from <a href="https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/">https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/</a> and save it. From the project directory, run the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/imgvr-virus-kallisto-index-k31.idx -l imgvr-viruses-list.txt -o $outputDirectory
 ```
@@ -101,8 +104,10 @@ For running FastViromeExplorer using IMG/VR database, we need to specify the kal
 You can run FastViromeExplorer using any custom database.
 
 To run FastViromeExplorer using a custom database, you need to prepare two files:
-1. A fasta file containing the reference genomes
-2. A text file containing the list of reference genomes along with the genome length
+<ol>
+<li>A fasta file containing the reference genomes</li>
+<li>A text file containing the list of reference genomes along with the genome length</li>
+</ol>
 
 The text file should have four columns seperated by tab. Those four columns are virus-id, virus-name, virus-taxonomy, and genome-length. The 1st and last column must have values. For 2nd and 3rd columns, you can put "N/A" if those values are not available.
 Two list of viruses are already given with the source of FastViromeExplorer, the default virus list (ncbi-viruses-list.txt) containg all NCBI RefSeq viruses and the IMG/VR virus list (imgvr-viruses-list.txt). You need to create a similar list for your custom database.
@@ -124,15 +129,17 @@ java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -db /path-to-referen
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i $indexFile -o $outputDirectory
 
 The full parameter list of FastViromeExplorer:
-1. -1: input .fastq file for read sequences (paired-end 1), mandatory field.
-2. -2: input .fastq file for read sequences (paired-end 2).
-3. -i: kallisto index file, mandatory field.
-4. -db: reference database file in fasta/fa format.
-5. -o: output directory, default option is the project directory.
-6. -l: virus list containing all viruses present in the reference database along with their length.
-7. -cr: the value of ratio criteria, default: 0.3.
-8. -co: the value of coverage criteria, default: 0.1.
-9. -cn: the value of number of reads criteria, default: 10.
+<ol>
+<li>-1: input .fastq file for read sequences (paired-end 1), mandatory field.</li>
+<li>-2: input .fastq file for read sequences (paired-end 2).</li>
+<li>-i: kallisto index file, mandatory field.</li>
+<li>-db: reference database file in fasta/fa format.</li>
+<li>-o: output directory, default option is the project directory.</li>
+<li>-l: virus list containing all viruses present in the reference database along with their length.</li>
+<li>-cr: the value of ratio criteria, default: 0.3.</li>
+<li>-co: the value of coverage criteria, default: 0.1.</li>
+<li>-cn: the value of number of reads criteria, default: 10.</li>
+</ol>
 
 You can also run FastViromeExplorer with more flexible or more strict criteria by specifying different values for parameters "-cr", "-co", and "-cn".
 

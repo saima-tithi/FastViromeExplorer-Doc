@@ -1,6 +1,6 @@
-Welcome to FastViromeExplorer's documentation!
-==============================================
-Indentify the viruses/phages and their abundance in the viral metagenomics data. FastViromeExplorer is freely available at: https://code.vt.edu/saima5/FastViromeExplorer
+FastViromeExplorer
+===================
+Indentify the viruses/phages and their abundance in the viral metagenomics data. FastViromeExplorer is freely available at: (https://code.vt.edu/saima5/FastViromeExplorer)
 
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.

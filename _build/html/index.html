@@ -107,7 +107,7 @@ Version: <span class="m">1</span>.5 <span class="o">(</span>using htslib <span c
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer
 </pre></div>
 </div>
-<p>It will print the usage and prameter list of FastViromeExplorer in terminal.</p>
+<p>It will print the usage and parameter list of FastViromeExplorer in terminal.</p>
 </div>
 </div>
 <div class="section" id="run-fastviromeexplorer-using-test-data">
@@ -148,6 +148,13 @@ Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kalli
 </div>
 <p>For running FastViromeExplorer using IMG/VR database, we need to specify the kallisto index file and the list of viruses in the database along with their genome length, which is given in the file &quot;imgvr-viruses-list.txt&quot;.</p>
 </div>
+<div class="section" id="run-fastviromeexplorer-using-global-ocean-virome-gov-database">
+<span id="run-fastviromeexplorer-using-global-ocean-virome-gov-database"></span><h1>Run FastViromeExplorer using Global Ocean Virome (GOV) database<a class="headerlink" href="#run-fastviromeexplorer-using-global-ocean-virome-gov-database" title="Permalink to this headline">¶</a></h1>
+<p>Download the kallisto index file for GOV database &quot;GOV_viral_contigs_EPI_MES.idx&quot; and the list of viruses in the database &quot;GOV_viral_contigs_EPI_MES_list.txt&quot; from <a href="https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/">https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/</a> and save those files. From the project directory, run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -i /path-to-index-file/GOV_viral_contigs_EPI_MES.idx -l /path-to-virus-list/GOV_viral_contigs_EPI_MES_list.txt -o <span class="nv">$outputDirectory</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="run-fastviromeexplorer-using-custom-database">
 <span id="run-fastviromeexplorer-using-custom-database"></span><h1>Run FastViromeExplorer using custom database<a class="headerlink" href="#run-fastviromeexplorer-using-custom-database" title="Permalink to this headline">¶</a></h1>
 <p>You can run FastViromeExplorer using any custom database.</p>
@@ -158,9 +165,9 @@ Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kalli
 </ol><p>The text file should have four columns seperated by tab. Those four columns are virus-id, virus-name, virus-taxonomy, and genome-length. The 1st and last column must have values. For 2nd and 3rd columns, you can put &quot;N/A&quot; if those values are not available.
 Two list of viruses are already given with the source of FastViromeExplorer, the default virus list (ncbi-viruses-list.txt) containg all NCBI RefSeq viruses and the IMG/VR virus list (imgvr-viruses-list.txt). You need to create a similar list for your custom database.</p>
 <p>An example of the virus list from &quot;ncbi-viruses-list.txt&quot;:</p>
-<p>NC_033618.1    Pea leaf distortion betasatellite clone N36-54, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Pea leaf distortion betasatellite    1347</p>
-<p>NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DNA-A, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Geminiviridae;Begomovirus;Pepper yellow leaf curl Thailand virus    2742</p>
-<p>...</p>
+<p>NC_033618.1    Pea leaf distortion betasatellite clone N36-54, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Pea leaf distortion betasatellite    1347
+NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DNA-A, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Geminiviridae;Begomovirus;Pepper yellow leaf curl Thailand virus    2742
+...</p>
 <p>After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -db /path-to-reference-database/<span class="nv">$reference</span>-database.fa -l /path-to-virus-list/<span class="nv">$virus</span>-list.txt -o <span class="nv">$outpurDirectory</span>
 </pre></div>
@@ -192,6 +199,8 @@ Two list of viruses are already given with the source of FastViromeExplorer, the
 </div>
 <div class="section" id="citation">
 <span id="citation"></span><h1>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h1>
+<p>If you are using our tool, please cite us:</p>
+<p>Saima Sultana Tithi, Roderick V. Jensen, and Liqing Zhang. &quot;FastViromeExplorer: A Pipeline for Virus and Phage Identification and Abundance Profiling in Metagenomics Data.&quot; bioRxiv (2017): 196998.</p>
 </div>
 
 

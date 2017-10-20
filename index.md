@@ -61,7 +61,7 @@ After installing FastViromeExplorer, you can check it by running the following c
 ```bash
 java -cp bin FastViromeExplorer
 ```
-It will print the usage and prameter list of FastViromeExplorer in terminal.
+It will print the usage and parameter list of FastViromeExplorer in terminal.
 
 # Run FastViromeExplorer using test data
 From the project directory, run the following commands:
@@ -100,6 +100,12 @@ java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-fi
 ```
 For running FastViromeExplorer using IMG/VR database, we need to specify the kallisto index file and the list of viruses in the database along with their genome length, which is given in the file "imgvr-viruses-list.txt".
 
+# Run FastViromeExplorer using Global Ocean Virome (GOV) database
+Download the kallisto index file for GOV database "GOV_viral_contigs_EPI_MES.idx" and the list of viruses in the database "GOV_viral_contigs_EPI_MES_list.txt" from <a href="https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/">https://bioinformatics.cs.vt.edu/zhanglab/software/FastViromeExplorer/</a> and save those files. From the project directory, run the following command:
+```bash
+java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/GOV_viral_contigs_EPI_MES.idx -l /path-to-virus-list/GOV_viral_contigs_EPI_MES_list.txt -o $outputDirectory
+```
+
 # Run FastViromeExplorer using custom database
 You can run FastViromeExplorer using any custom database.
 
@@ -115,9 +121,7 @@ Two list of viruses are already given with the source of FastViromeExplorer, the
 An example of the virus list from "ncbi-viruses-list.txt":
 
 NC_033618.1    Pea leaf distortion betasatellite clone N36-54, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Pea leaf distortion betasatellite    1347
-
 NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DNA-A, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Geminiviridae;Begomovirus;Pepper yellow leaf curl Thailand virus    2742
-
 ...
 
 After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:
@@ -148,3 +152,6 @@ If you are having issues, please contact us at saima5@vt.edu
 # License
 This project is licensed under the BSD 2-clause "Simplified" License.
 # Citation
+If you are using our tool, please cite us:
+
+Saima Sultana Tithi, Roderick V. Jensen, and Liqing Zhang. "FastViromeExplorer: A Pipeline for Virus and Phage Identification and Abundance Profiling in Metagenomics Data." bioRxiv (2017): 196998.

@@ -121,7 +121,9 @@ Two list of viruses are already given with the source of FastViromeExplorer, the
 An example of the virus list from "ncbi-viruses-list.txt":
 
 NC_033618.1    Pea leaf distortion betasatellite clone N36-54, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Pea leaf distortion betasatellite    1347
+
 NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DNA-A, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Geminiviridae;Begomovirus;Pepper yellow leaf curl Thailand virus    2742
+
 ...
 
 After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:

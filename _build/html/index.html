@@ -51,7 +51,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git@code.vt.edu:saima5/FastViromeExplorer.git
 </pre></div>
 </div>
-<p>From now on, we will refer the FastViromeExplorer directory in the user's local machine as project directory.</p>
+<p>From now on, we will refer the FastViromeExplorer directory in the user's local machine as project directory. The project directory will contain 5 folders src, bin, test, tools-linux, and tools-mac. It will also contain two text file ncbi-viruses-list and imgvr-viruses-list.txt.</p>
 </div>
 <div class="section" id="install-java">
 <span id="install-java"></span><h2>Install Java<a class="headerlink" href="#install-java" title="Permalink to this headline">¶</a></h2>
@@ -103,7 +103,7 @@ Version: <span class="m">1</span>.5 <span class="o">(</span>using htslib <span c
 <div class="highlight-bash"><div class="highlight"><pre><span></span>javac -d bin src/*.java
 </pre></div>
 </div>
-<p>After installing FastViromeExplorer, you can check it by running the following command from the project directory:</p>
+<p>After installing FastViromeExplorer, you can check it by running the following command from the same project directory:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer
 </pre></div>
 </div>
@@ -147,6 +147,7 @@ Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kalli
 </pre></div>
 </div>
 <p>For running FastViromeExplorer using IMG/VR database, we need to specify the kallisto index file and the list of viruses in the database along with their genome length, which is given in the file &quot;imgvr-viruses-list.txt&quot;.</p>
+<p>After running FastViromeExplorer using IMG/VR as reference database, the abundance output will be saved in FastViromeExplorer-final-sorted-abundance.tsv. The 1st column of this file contains the ids of the mVCs. An example id is: 7000000498.a:SRS017521_Baylor_scaffold_5189. Here, the 1st part of the id (before .a:) represents a genome id from IMG/VR database and the 2nd part (after .a:) represents the scaffold id from IMG/VR database. To retrieve the annotation of a genome or of a scaffold, you need to go to the IMG/VR webpage (<a href="https://img.jgi.doe.gov/cgi-bin/vr/main.cgi">https://img.jgi.doe.gov/cgi-bin/vr/main.cgi</a>). You can find annotation of a genome by searching for the genome id in the &quot;Quick Genome Search&quot; search box. Similarly, you can find annotation of a scaffold by searching for the scaffold id in the &quot;Scaffold Search&quot; section of IMG/VR (<a href="https://img.jgi.doe.gov/cgi-bin/vr/main.cgi?section=ScaffoldSearch">https://img.jgi.doe.gov/cgi-bin/vr/main.cgi?section=ScaffoldSearch</a>)</p>
 </div>
 <div class="section" id="run-fastviromeexplorer-using-global-ocean-virome-gov-database">
 <span id="run-fastviromeexplorer-using-global-ocean-virome-gov-database"></span><h1>Run FastViromeExplorer using Global Ocean Virome (GOV) database<a class="headerlink" href="#run-fastviromeexplorer-using-global-ocean-virome-gov-database" title="Permalink to this headline">¶</a></h1>

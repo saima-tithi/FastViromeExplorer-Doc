@@ -9,7 +9,7 @@ You can download FastViromeExplorer directly from github (Github link: <a href="
 ```bash
 git clone git@code.vt.edu:saima5/FastViromeExplorer.git
 ```
-From now on, we will refer the FastViromeExplorer directory in the user's local machine as project directory. The project directory will contain 5 folders src, bin, test, tools-linux, and tools-mac. It will also contain two text file ncbi-viruses-list and imgvr-viruses-list.txt.
+From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 5 folders: src, bin, test, tools-linux, and tools-mac. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
 ## Install Java
 If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.
 After installing Java, you can check it by running the following command in terminal:
@@ -88,13 +88,13 @@ java -cp bin FastViromeExplorer -1 test/reads_1.fq -i test/testset-kallisto-inde
 
 # Run FastViromeExplorer using NCBI RefSeq database
 Some pre-computed kallisto index files are given in the following link: <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a>.
-Download the kallisto index file for NCBI RefSeq database "ncbi-virus-kallisto-index-k31.idx" and save it. From the project directory, run the following command:
+Download the kallisto index file for NCBI RefSeq database "ncbi-virus-kallisto-index-k31.idx" and save it. In terminal, go into the project directory. From the project directory, run the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/ncbi-virus-kallisto-index-k31.idx -o $outputDirectory
 ```
 
 # Run FastViromeExplorer using IMG/VR database
-Download the kallisto index file for IMG/VR database "imgvr-virus-kallisto-index-k31.idx" from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save it. From the project directory, run the following command:
+Download the kallisto index file for IMG/VR database "imgvr-virus-kallisto-index-k31.idx" from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save it. In terminal, go into the project directory. From the project directory, run the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/imgvr-virus-kallisto-index-k31.idx -l imgvr-viruses-list.txt -o $outputDirectory
 ```
@@ -103,7 +103,7 @@ For running FastViromeExplorer using IMG/VR database, we need to specify the kal
 After running FastViromeExplorer using IMG/VR as reference database, the abundance output will be saved in FastViromeExplorer-final-sorted-abundance.tsv. The 1st column of this file contains the ids of the mVCs. An example id is: 7000000498.a:SRS017521_Baylor_scaffold_5189. Here, the 1st part of the id (before .a:) represents a genome id from IMG/VR database and the 2nd part (after .a:) represents the scaffold id from IMG/VR database. To retrieve the annotation of a genome or of a scaffold, you need to go to the IMG/VR webpage (<a href="https://img.jgi.doe.gov/cgi-bin/vr/main.cgi">https://img.jgi.doe.gov/cgi-bin/vr/main.cgi</a>). You can find annotation of a genome by searching for the genome id in the "Quick Genome Search" search box. Similarly, you can find annotation of a scaffold by searching for the scaffold id in the "Scaffold Search" section of IMG/VR (<a href="https://img.jgi.doe.gov/cgi-bin/vr/main.cgi?section=ScaffoldSearch">https://img.jgi.doe.gov/cgi-bin/vr/main.cgi?section=ScaffoldSearch</a>)
 
 # Run FastViromeExplorer using Global Ocean Virome (GOV) database
-Download the kallisto index file for GOV database "GOV_viral_contigs_EPI_MES.idx" and the list of viruses in the database "GOV_viral_contigs_EPI_MES_list.txt" from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save those files. From the project directory, run the following command:
+Download the kallisto index file for GOV database "GOV_viral_contigs_EPI_MES.idx" and the list of viruses in the database "GOV_viral_contigs_EPI_MES_list.txt" from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save those files. In terminal, go into the project directory. From the project directory, run the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/GOV_viral_contigs_EPI_MES.idx -l /path-to-virus-list/GOV_viral_contigs_EPI_MES_list.txt -o $outputDirectory
 ```

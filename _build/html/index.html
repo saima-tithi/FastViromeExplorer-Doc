@@ -51,7 +51,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git clone git@code.vt.edu:saima5/FastViromeExplorer.git
 </pre></div>
 </div>
-<p>From now on, we will refer the FastViromeExplorer directory in the user's local machine as project directory. The project directory will contain 5 folders src, bin, test, tools-linux, and tools-mac. It will also contain two text file ncbi-viruses-list and imgvr-viruses-list.txt.</p>
+<p>From now on, we will refer the FastViromeExplorer directory in the user's local machine as <code class="docutils literal"><span class="pre">project</span> <span class="pre">directory</span></code>. The <code class="docutils literal"><span class="pre">project</span> <span class="pre">directory</span></code> will contain 5 folders: src, bin, test, tools-linux, and tools-mac. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.</p>
 </div>
 <div class="section" id="install-java">
 <span id="install-java"></span><h2>Install Java<a class="headerlink" href="#install-java" title="Permalink to this headline">¶</a></h2>
@@ -135,14 +135,14 @@ java -cp bin FastViromeExplorer -1 test/reads_1.fq -i test/testset-kallisto-inde
 <div class="section" id="run-fastviromeexplorer-using-ncbi-refseq-database">
 <span id="run-fastviromeexplorer-using-ncbi-refseq-database"></span><h1>Run FastViromeExplorer using NCBI RefSeq database<a class="headerlink" href="#run-fastviromeexplorer-using-ncbi-refseq-database" title="Permalink to this headline">¶</a></h1>
 <p>Some pre-computed kallisto index files are given in the following link: <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a>.
-Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kallisto-index-k31.idx&quot; and save it. From the project directory, run the following command:</p>
+Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kallisto-index-k31.idx&quot; and save it. In terminal, go into the project directory. From the project directory, run the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -i /path-to-index-file/ncbi-virus-kallisto-index-k31.idx -o <span class="nv">$outputDirectory</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="run-fastviromeexplorer-using-img-vr-database">
 <span id="run-fastviromeexplorer-using-img-vr-database"></span><h1>Run FastViromeExplorer using IMG/VR database<a class="headerlink" href="#run-fastviromeexplorer-using-img-vr-database" title="Permalink to this headline">¶</a></h1>
-<p>Download the kallisto index file for IMG/VR database &quot;imgvr-virus-kallisto-index-k31.idx&quot; from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save it. From the project directory, run the following command:</p>
+<p>Download the kallisto index file for IMG/VR database &quot;imgvr-virus-kallisto-index-k31.idx&quot; from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save it. In terminal, go into the project directory. From the project directory, run the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -i /path-to-index-file/imgvr-virus-kallisto-index-k31.idx -l imgvr-viruses-list.txt -o <span class="nv">$outputDirectory</span>
 </pre></div>
 </div>
@@ -151,7 +151,7 @@ Download the kallisto index file for NCBI RefSeq database &quot;ncbi-virus-kalli
 </div>
 <div class="section" id="run-fastviromeexplorer-using-global-ocean-virome-gov-database">
 <span id="run-fastviromeexplorer-using-global-ocean-virome-gov-database"></span><h1>Run FastViromeExplorer using Global Ocean Virome (GOV) database<a class="headerlink" href="#run-fastviromeexplorer-using-global-ocean-virome-gov-database" title="Permalink to this headline">¶</a></h1>
-<p>Download the kallisto index file for GOV database &quot;GOV_viral_contigs_EPI_MES.idx&quot; and the list of viruses in the database &quot;GOV_viral_contigs_EPI_MES_list.txt&quot; from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save those files. From the project directory, run the following command:</p>
+<p>Download the kallisto index file for GOV database &quot;GOV_viral_contigs_EPI_MES.idx&quot; and the list of viruses in the database &quot;GOV_viral_contigs_EPI_MES_list.txt&quot; from <a href="http://bench.cs.vt.edu/FastViromeExplorer/">http://bench.cs.vt.edu/FastViromeExplorer/</a> and save those files. In terminal, go into the project directory. From the project directory, run the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -i /path-to-index-file/GOV_viral_contigs_EPI_MES.idx -l /path-to-virus-list/GOV_viral_contigs_EPI_MES_list.txt -o <span class="nv">$outputDirectory</span>
 </pre></div>
 </div>

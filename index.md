@@ -128,6 +128,16 @@ NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DN
 
 ...
 
+A quick way to generate this virus-list.txt file is using samtools and bash. At first, run the following command to generate an index file for the reference:
+```bash
+samtools faidx reference-database.fa
+```
+It will generate "reference-database.fa.fai" file, which will have virus-id in 1st column and virus-length in 2nd column. Then you can run the following command to generate a FastViromeExplorer compatible virus-list file:
+```bash
+awk '{print $1"\tN/A\tN/A\t"$2}' reference-database.fa.fai > virus-list.txt
+```
+Now your virus-list.txt file will have four tab separated columns. The 1st and 4th column will have id and length, the 2nd and 3rd column will just have "N/A".
+
 After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -db /path-to-reference-database/$reference-database.fa -l /path-to-virus-list/$virus-list.txt -o $outpurDirectory

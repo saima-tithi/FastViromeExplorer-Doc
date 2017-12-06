@@ -169,6 +169,15 @@ Two list of viruses are already given with the source of FastViromeExplorer, the
 <p>NC_033618.1    Pea leaf distortion betasatellite clone N36-54, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Unclassified;Pea leaf distortion betasatellite    1347</p>
 <p>NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DNA-A, complete sequence    Unclassified;Unclassified;Unclassified;Unclassified;Geminiviridae;Begomovirus;Pepper yellow leaf curl Thailand virus    2742</p>
 <p>...</p>
+<p>A quick way to generate this virus-list.txt file is using samtools and bash. At first, run the following command to generate an index file for the reference:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>samtools faidx reference-database.fa
+</pre></div>
+</div>
+<p>It will generate &quot;reference-database.fa.fai&quot; file, which will have virus-id in 1st column and virus-length in 2nd column. Then you can run the following command to generate a FastViromeExplorer compatible virus-list file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>awk <span class="s1">&#39;{print $1&quot;\tN/A\tN/A\t&quot;$2}&#39;</span> reference-database.fa.fai &gt; virus-list.txt
+</pre></div>
+</div>
+<p>Now your virus-list.txt file will have four tab separated columns. The 1st and 4th column will have id and length, the 2nd and 3rd column will just have &quot;N/A&quot;.</p>
 <p>After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -db /path-to-reference-database/<span class="nv">$reference</span>-database.fa -l /path-to-virus-list/<span class="nv">$virus</span>-list.txt -o <span class="nv">$outpurDirectory</span>
 </pre></div>

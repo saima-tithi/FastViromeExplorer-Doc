@@ -1,6 +1,8 @@
 FastViromeExplorer
 ===================
-Indentify the viruses/phages and their abundance in the viral metagenomics data. FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>
+Indentify the viruses/phages and their abundance in the viral metagenomics data. 
+The paper describing FastViromeExplorer is available from here: <a href="https://peerj.com/articles/4227/">https://peerj.com/articles/4227/</a>. 
+FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>
 
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
@@ -52,6 +54,17 @@ Program: samtools (Tools for alignments in the SAM format)
 Version: 1.5 (using htslib 1.5)
 ...
 ```
+## Install Kallisto and Samtools without sudo access
+If you do not have sudo access, you can install them locally by updating the .bashrc file in your home directory. You need to add the following line in your .bashrc:
+```bash
+export PATH=$PATH:/path-to-FastViromeExplorer/tools-linux
+```
+Or 
+
+```bash
+export PATH=$PATH:/path-to-FastViromeExplorer/tools-mac
+```
+
 ## Install FastViromeExplorer
 In terminal, go into the project directory, which should contain `src` and `bin` folders. From the project directory, run the following command:
 ```bash
@@ -117,7 +130,7 @@ To run FastViromeExplorer using a custom database, you need to prepare two files
 <li>A text file containing the list of reference genomes along with the genome length</li>
 </ol>
 
-The text file should have four columns seperated by tab. Those four columns are virus-id, virus-name, virus-taxonomy, and genome-length. The 1st and last column must have values. For 2nd and 3rd columns, you can put "N/A" if those values are not available.
+The text file should have four columns seperated by tab. Those four columns are virus-id, virus-name, virus-taxonomy, and genome-length. The 1st and last column must have values. For 2nd and 3rd columns, you can put "N/A" if those values are not available. This file should not have any header.
 Two list of viruses are already given with the source of FastViromeExplorer, the default virus list (ncbi-viruses-list.txt) containg all NCBI RefSeq viruses and the IMG/VR virus list (imgvr-viruses-list.txt). You need to create a similar list for your custom database.
 
 An example of the virus list from "ncbi-viruses-list.txt":
@@ -128,19 +141,15 @@ NC_028989.1    Pepper yellow leaf curl Thailand virus isolate KON-KG5 segment DN
 
 ...
 
-A quick way to generate this virus-list.txt file is using samtools and bash. At first, run the following command to generate an index file for the reference:
+A quick way to generate this virus-list.txt file is using the bash script named <i>generateGenomeList.sh</i> provided in `utility-scripts` folder. Go to the `utility-scripts` folder and run the following command to generate virus-list.txt file for the reference database:
 ```bash
-samtools faidx reference-database.fa
+bash generateGenomeList.sh /path-to-reference-database/$reference-database.fa /path-to-virus-list-file/$virus-list.txt
 ```
-It will generate "reference-database.fa.fai" file, which will have virus-id in 1st column and virus-length in 2nd column. Then you can run the following command to generate a FastViromeExplorer compatible virus-list file:
-```bash
-awk '{print $1"\tN/A\tN/A\t"$2}' reference-database.fa.fai > virus-list.txt
-```
-Now your virus-list.txt file will have four tab separated columns. The 1st and 4th column will have id and length, the 2nd and 3rd column will just have "N/A".
+For this bash script, the 1st parameter is the fasta file for reference database and the 2nd parameter is the output file name. After running this script, you will have a FastViromeExplorer compatible virus-list.txt file, which will have four tab separated columns. The 1st and 4th column will have genome-id and genome-length, the 2nd and 3rd column will just have "N/A".
 
 After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:
 ```bash
-java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -db /path-to-reference-database/$reference-database.fa -l /path-to-virus-list/$virus-list.txt -o $outpurDirectory
+java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -db /path-to-reference-database/$reference-database.fa -l /path-to-virus-list-file/$virus-list.txt -o $outpurDirectory
 ```
 
 # Usage
@@ -148,8 +157,8 @@ java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i $indexFile -o $ou
 
 The full parameter list of FastViromeExplorer:
 <ol>
-<li>-1: input .fastq file for read sequences (paired-end 1), mandatory field.</li>
-<li>-2: input .fastq file for read sequences (paired-end 2).</li>
+<li>-1: input .fastq file or .fastq.gz file for read sequences (paired-end 1), mandatory field.</li>
+<li>-2: input .fastq file or .fastq.gz file for read sequences (paired-end 2).</li>
 <li>-i: kallisto index file, mandatory field.</li>
 <li>-db: reference database file in fasta/fa format.</li>
 <li>-o: output directory, default option is the project directory.</li>
@@ -157,9 +166,10 @@ The full parameter list of FastViromeExplorer:
 <li>-cr: the value of ratio criteria, default: 0.3.</li>
 <li>-co: the value of coverage criteria, default: 0.1.</li>
 <li>-cn: the value of number of reads criteria, default: 10.</li>
+<li>-salmon: use salmon instead of kallisto, default: false. To use salmon pass '-salmon true' as parameter.</li>
 </ol>
 
-You can also run FastViromeExplorer with more flexible or more strict criteria by specifying different values for parameters "-cr", "-co", and "-cn".
+You can also run FastViromeExplorer with more flexible or more strict criteria by specifying different values for parameters "-cr", "-co", and "-cn". Increasing the values for parameters "-cr", "-co", and "-cn" will output more "high confidence" or more specific set of viruses. On the other hand, decreasing the values will increase sensitivity.
 
 # Support
 If you are having issues, please contact us at saima5@vt.edu
@@ -168,4 +178,4 @@ This project is licensed under the BSD 2-clause "Simplified" License.
 # Citation
 If you are using our tool, please cite us:
 
-Saima Sultana Tithi, Roderick V. Jensen, and Liqing Zhang. "FastViromeExplorer: A Pipeline for Virus and Phage Identification and Abundance Profiling in Metagenomics Data." bioRxiv (2017): 196998.
+Saima Sultana Tithi, Frank O. Aylward, Roderick V. Jensen, and Liqing Zhang. "FastViromeExplorer: a pipeline for virus and phage identification and abundance profiling in metagenomics data." PeerJ 6 (2018): e4227.

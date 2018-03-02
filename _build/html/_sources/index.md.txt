@@ -7,10 +7,8 @@ FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/F
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
 ## Download FastViromeExplorer
-You can download FastViromeExplorer directly from github (Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) and extract it. You can also download it using the following command:
-```bash
-git clone git@code.vt.edu:saima5/FastViromeExplorer.git
-```
+You can download FastViromeExplorer directly from github (Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) in zipped format using the "Download" button (<img src="../../images/download-button.png" alt="" align="middle">) and extract it.
+
 From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 5 folders: src, bin, test, tools-linux, and tools-mac. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
 ## Install Java
 If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.

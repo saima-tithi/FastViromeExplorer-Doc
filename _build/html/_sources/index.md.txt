@@ -7,9 +7,9 @@ FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/F
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
 ## Download FastViromeExplorer
-You can download FastViromeExplorer directly from github (Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) in zipped format using the "Download" button (<img src="../../images/download-button.png" alt="" align="middle">) and extract it.
+You can download FastViromeExplorer directly from VT github (VT Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) in zipped format using the "Download" button <img src="../../_static/download-button.png" alt="" align="middle"> and extract it. You can also download it from "Releases" page of FastViromeExplorer github repository (<a href="https://github.com/saima-tithi/FastViromeExplorer/releases">https://github.com/saima-tithi/FastViromeExplorer/releases</a>).
 
-From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 5 folders: src, bin, test, tools-linux, and tools-mac. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
+From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 6 folders: src, bin, test, tools-linux, tools-mac, and utility-scripts. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
 ## Install Java
 If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.
 After installing Java, you can check it by running the following command in terminal:

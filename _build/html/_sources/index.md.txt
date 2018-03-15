@@ -55,12 +55,12 @@ Version: 1.5 (using htslib 1.5)
 ## Install Kallisto and Samtools without sudo access
 If you do not have sudo access, you can install them locally by updating the .bashrc file in your home directory. You need to add the following line in your .bashrc:
 ```bash
-export PATH=$PATH:/path-to-FastViromeExplorer/tools-linux
+export PATH=$PATH:/path-to-FastViromeExplorer-project-directory/tools-linux
 ```
 Or 
 
 ```bash
-export PATH=$PATH:/path-to-FastViromeExplorer/tools-mac
+export PATH=$PATH:/path-to-FastViromeExplorer-project-directory/tools-mac
 ```
 
 ## Install FastViromeExplorer
@@ -148,6 +148,15 @@ For this bash script, the 1st parameter is the fasta file for reference database
 After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:
 ```bash
 java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -db /path-to-reference-database/$reference-database.fa -l /path-to-virus-list-file/$virus-list.txt -o $outpurDirectory
+```
+
+If you are going to use the same custom database many times, it is better to generate a kallisto index file for this database and save it, and then use this index file for running FastViromeExplorer. You can generate a kallisto index file using the following command:
+```bash
+kallisto index -i kallisto-index.idx /path-to-reference-database/$reference-database.fa
+```
+It will generate a file named "kallisto-index.idx". Then you can run FastViromeExplorer using this index file using the following command:
+```bash
+java -cp bin FastViromeExplorer -1 $read1File -2 $read2File -i /path-to-index-file/kallisto-index.idx -l /path-to-virus-list-file/$virus-list.txt -o $outpurDirectory
 ```
 
 # Usage

@@ -99,11 +99,11 @@ Version: <span class="m">1</span>.5 <span class="o">(</span>using htslib <span c
 <div class="section" id="install-kallisto-and-samtools-without-sudo-access">
 <span id="install-kallisto-and-samtools-without-sudo-access"></span><h2>Install Kallisto and Samtools without sudo access<a class="headerlink" href="#install-kallisto-and-samtools-without-sudo-access" title="Permalink to this headline">¶</a></h2>
 <p>If you do not have sudo access, you can install them locally by updating the .bashrc file in your home directory. You need to add the following line in your .bashrc:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path-to-FastViromeExplorer/tools-linux
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path-to-FastViromeExplorer-project-directory/tools-linux
 </pre></div>
 </div>
 <p>Or</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path-to-FastViromeExplorer/tools-mac
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/path-to-FastViromeExplorer-project-directory/tools-mac
 </pre></div>
 </div>
 </div>
@@ -186,6 +186,14 @@ Two list of viruses are already given with the source of FastViromeExplorer, the
 <p>For this bash script, the 1st parameter is the fasta file for reference database and the 2nd parameter is the output file name. After running this script, you will have a FastViromeExplorer compatible virus-list.txt file, which will have four tab separated columns. The 1st and 4th column will have genome-id and genome-length, the 2nd and 3rd column will just have &quot;N/A&quot;.</p>
 <p>After preparing the reference database and the list of viruses file, you can run FastViromeExplorer using the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -db /path-to-reference-database/<span class="nv">$reference</span>-database.fa -l /path-to-virus-list-file/<span class="nv">$virus</span>-list.txt -o <span class="nv">$outpurDirectory</span>
+</pre></div>
+</div>
+<p>If you are going to use the same custom database many times, it is better to generate a kallisto index file for this database and save it, and then use this index file for running FastViromeExplorer. You can generate a kallisto index file using the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>kallisto index -i kallisto-index.idx /path-to-reference-database/<span class="nv">$reference</span>-database.fa
+</pre></div>
+</div>
+<p>It will generate a file named &quot;kallisto-index.idx&quot;. Then you can run FastViromeExplorer using this index file using the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java -cp bin FastViromeExplorer -1 <span class="nv">$read1File</span> -2 <span class="nv">$read2File</span> -i /path-to-index-file/kallisto-index.idx -l /path-to-virus-list-file/<span class="nv">$virus</span>-list.txt -o <span class="nv">$outpurDirectory</span>
 </pre></div>
 </div>
 </div>

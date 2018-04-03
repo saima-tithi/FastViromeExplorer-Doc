@@ -55,12 +55,12 @@ Version: 1.5 (using htslib 1.5)
 
 If the executables given for kallisto or samtools is not working properly, you need to download and install them from source from their respective websites. 
 
-You can download samtools source from this link https://sourceforge.net/projects/samtools/files/ or from this link https://github.com/samtools/samtools/releases and then install it by following their installation guideline. 
+You can download samtools source from this link <a href="https://sourceforge.net/projects/samtools/files/">https://sourceforge.net/projects/samtools/files/</a> or from this link <a href="https://github.com/samtools/samtools/releases">https://github.com/samtools/samtools/releases</a> and then install it by following their installation guideline. 
 
-You can download kallisto executables from this link https://pachterlab.github.io/kallisto/download.
+You can download kallisto executables from this link <a href="https://pachterlab.github.io/kallisto/download">https://pachterlab.github.io/kallisto/download</a>.
 
 ## Install Kallisto and Samtools without sudo access
-If you do not have sudo access, you can install them locally by updating the .bashrc file in your home directory. You need to add the following line in your .bashrc:
+If you do not have sudo access, you can install them locally by updating the .bashrc file in your home directory. You need to add the following line in your .bashrc file:
 ```bash
 export PATH=$PATH:/path-to-FastViromeExplorer-project-directory/tools-linux
 ```

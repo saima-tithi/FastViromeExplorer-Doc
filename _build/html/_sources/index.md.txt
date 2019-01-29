@@ -5,7 +5,7 @@ The paper describing FastViromeExplorer is available from here: <a href="https:/
 FastViromeExplorer is freely available at: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>
 
 # Installation
-FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
+FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or 0.43.1 installed in the user's machine. As in later versions of Kallisto, the output format of pseudoalignments is different, please use Kallisto version 0.43.0 or 0.43.1.
 ## Download FastViromeExplorer
 You can download FastViromeExplorer directly from VT github (VT Github link: <a href="https://code.vt.edu/saima5/FastViromeExplorer">https://code.vt.edu/saima5/FastViromeExplorer</a>) in zipped format using the "Download" button <img src="../../_static/download-button.png" alt="" align="middle"> and extract it. You can also download it from "Releases" page of FastViromeExplorer github repository (<a href="https://github.com/saima-tithi/FastViromeExplorer/releases">https://github.com/saima-tithi/FastViromeExplorer/releases</a>).
 
